@@ -64,7 +64,7 @@ class MyVkClient:
             vk_id = 'data'
         with open(vk_id+'.json', 'w') as f:
             json.dump(data_to_save, f, ensure_ascii=False, indent=2)
-        return True
+        return None
 
 
 def main():
