@@ -2,7 +2,8 @@ import requests
 import json
 from Data.config import TOKEN
 from time import sleep
-
+import os
+# test
 
 class MyVkClient:
     def __init__(self, token):
@@ -37,8 +38,10 @@ class MyVkClient:
 
     def find_unique_groups(self, user_vk_groups, user_vk_friends):
         count = len(user_vk_friends)
+     #   clear = lambda: os.system('clear')
         user_vk_groups = set(user_vk_groups)
         for friend in user_vk_friends:
+           # clear()
             print(count)
             friend_vk_groups = self.get_groups_by_id(friend)
             if friend_vk_groups is not None:
@@ -53,7 +56,7 @@ class MyVkClient:
         for ug in list_groups:
             new_dict = {}
             temp_dict = self.get_group_info_by_id(ug)[0]
-            new_dict['id'] = temp_dict['id']
+            new_dict['gid'] = temp_dict['id']
             new_dict['name'] = temp_dict['name']
             new_dict['members_count'] = temp_dict['members_count']
             tmp_list.append(new_dict)
